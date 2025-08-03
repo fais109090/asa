@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Damia Miss You 🌹</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+    }
+
+    #intro {
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      text-align: center;
+      font-size: 40px;
+      font-family: 'Arial', sans-serif;
+      animation: pulse 3s ease-in-out infinite, colorChange 8s linear infinite;
+      color: white;
+      text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff3399;
+      opacity: 0;
+      transition: opacity 3s ease-in-out;
+      z-index: 2;
+    }
+
+    #label {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 18px;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    .rose {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      animation-name: fall;
+      animation-timing-function: linear;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff3399;
+      }
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 20px #ff99cc, 0 0 30px #ff66cc, 0 0 40px #ff3399;
+      }
+    }
+
+    @keyframes colorChange {
+      0% { color: #ff66cc; }
+      25% { color: #ff99cc; }
+      50% { color: #ffffff; }
+      75% { color: #ff3399; }
+      100% { color: #ff66cc; }
+    }
+  </style>
+</head>
+<body>
+  <div id="intro">Damia Miss You 🌹</div>
+  <div id="label">By Paih</div>
+
+  <!-- Lagu autoplay dari YouTube (Damia - Mimpi) -->
+  <iframe
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/g3o8_xCIZ5Q?autoplay=1&loop=1&playlist=g3o8_xCIZ5Q&controls=0&showinfo=0"
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen
+    style="display:none">
+  </iframe>
+
+  <script>
+    // Fade in teks intro
+    setTimeout(() => {
+      document.getElementById("intro").style.opacity = 1;
+    }, 500);
+
+    // Bunga jatuh dari atas
+    function createFallingRose() {
+      const rose = document.createElement("div");
+      rose.classList.add("rose");
+      rose.innerText = "🌹";
+
+      rose.style.left = Math.random() * 100 + "vw";
+      rose.style.fontSize = (Math.random() * 20 + 20) + "px";
+      rose.style.animationDuration = (Math.random() * 3 + 4) + "s";
+
+      document.body.appendChild(rose);
+
+      setTimeout(() => {
+        rose.remove();
+      }, 8000);
+    }
+
+    setInterval(createFallingRose, 200);
+  </script>
+</body>
+</html>
